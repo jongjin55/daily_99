@@ -1,11 +1,13 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Test36 {
-
-    public String solution(String[] survey, int[] choices) {
+class Solution {
+// 성격유형 검사하기
+public String solution(String[] survey, int[] choices) {
+	// 계산 쉽게 하기 위해 점수 변형
         int[] score = {3, 2, 1, 0, -1, -2, -3};
         String[] output = {"RT", "CF", "JM", "AN"};
+	// 성격유형 점수부여를 위해 Map 사용
         Map<String, Integer> inputMap = new HashMap<>();
         
         inputMap.put("R", 0);
@@ -50,13 +52,5 @@ public class Test36 {
    
         String answer = sb.toString();
         return answer;
-    }
-    public static void main(String[] args) {
-        
-        Test36 test = new Test36();
-
-        String[] arr = {"AN", "CF", "MJ", "RT", "NA"};
-        int[] arr1 = {5, 3, 2, 7, 5};
-        System.out.println(test.solution(arr, arr1));
     }
 }
