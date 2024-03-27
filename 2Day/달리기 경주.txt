@@ -1,0 +1,35 @@
+public class Solution {  
+
+public String[] solution(String[] players, String[] callings) {
+            String[] answer = {};
+            String after = "";   // 변경 선수
+            Map<String, Integer> inMap = new HashMap();
+            int idx = -1;
+            for(int i=0; i<callings.length; i++) {
+              if(inMap.get(callings[i]) != null) {
+                idx = inMap.get(callings[i]);
+
+                after = players[idx];
+                players[idx] = players[idx-1];
+                players[idx-1] = after;
+                inMap.put(players[idx], idx);
+                inMap.put(players[idx-1], idx-1);
+              }else {
+                for (int j=0; j<players.length; j++) {
+                    
+                    if(callings[i].equals(players[j])) {
+                        after = players[j-1];
+
+                        players[j-1]  = players[j];
+                        players[j] = after;  // 변경선수
+                        inMap.put(players[j], j);
+                        inMap.put(players[j-1], j-1);
+                        break;
+                    }
+                }
+             }
+            }
+            answer = players;
+            return answer;
+        }
+}

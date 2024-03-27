@@ -1,0 +1,24 @@
+public class Solution {
+ 
+        public String[] solution(String[] players, String[] callings) {
+            String[] answer = {};
+            String after = "";   // 변경 선수
+            Map<String, Integer> inMap = new HashMap();
+            int idx = -1;
+            for(int i=0; i<callings.length; i++) {
+                for (int j=0; j<players.length; j++) {
+                    
+                    if(callings[i].equals(players[j])) {
+                        after = players[j-1];
+
+                        players[j-1]  = players[j];
+                        players[j] = after;  // 변경선수
+
+                        break;
+                    }
+                }
+             }
+            answer = players;
+            return answer;
+        }
+}
