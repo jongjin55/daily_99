@@ -1,0 +1,14 @@
+class Solution {
+    public long solution(long n) {
+        long answer = 0;
+        double result = Math.sqrt(n);
+
+        if(result % 1 == 0.0) {
+            answer = Double.valueOf(result).longValue() + 1;
+            answer = Double.valueOf(Math.pow(answer, 2)).longValue();
+        }else {
+            answer  = -1;
+        }
+        return answer;
+    }
+}
