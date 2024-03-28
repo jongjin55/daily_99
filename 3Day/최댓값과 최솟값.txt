@@ -1,0 +1,13 @@
+import java.util.*;
+
+class Solution {
+    public String solution(String s) {
+        
+        List<String> arr = Arrays.asList(s.split(" "));
+        int[] str = arr.stream().mapToInt(Integer::parseInt).toArray();
+        
+        Arrays.sort(str);
+        String answer = str[0] + " " + str[str.length-1];
+        return answer;
+    }
+}
