@@ -1,0 +1,24 @@
+class Solution {
+    public int[] solution(String[] wallpaper) {
+        int Xmin = Integer.MAX_VALUE;
+        int Xmax = Integer.MIN_VALUE;
+        int Ymin = Integer.MAX_VALUE;
+        int Ymax = Integer.MIN_VALUE;
+
+        for (int i = 0; i < wallpaper.length; i++) {
+            if(wallpaper[i].indexOf("#") > -1 || wallpaper[i].lastIndexOf("#") > -1) {
+                Xmin = Math.min(Xmin, i);
+                Xmax = Math.max(Xmax, i+1);
+            }
+
+            for (int j = 0; j < wallpaper[i].length(); j++) {
+                if(wallpaper[i].charAt(j) == '#') {
+                    Ymin = Math.min(Ymin, j);
+                    Ymax = Math.max(Ymax, j+1);
+                }
+            }     
+        }
+        int[] answer = {Xmin, Ymin, Xmax, Ymax};
+        return answer;
+    }
+}
