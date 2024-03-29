@@ -62,28 +62,7 @@ Stream을 이용한 풀이는 간편해보여서 Stream을 이용한 풀이도 �
 
 다른 사람들 풀이를 통해 아쉬운 부분을 찾을 수 있었음. (정말 다양하고 창의적?인 지니어스들이 많다는 걸 봄 ㄷㄷ)
 
-나의 풀이에서 좀 더 나아가면 아래와 같이 비슷한 풀이가 되는 거 같음
-
-    for(int i=0; i<size-4; i++){
-          sb.append("*");
-    }
-    
-    sb.append(phone_number.substring(size-4, size));
-    return sb.toString();
-
-substring을 마지막 4자리에만 적용..이 생각도 못하다니 ㅜ
-
-다른 사람들 풀이를 보면 
-
-     char[] ch = phone_number.toCharArray();
-     for(int i = 0; i < ch.length - 4; i ++){
-           ch[i] = '*';
-     }
-     return String.valueOf(ch);
-
-위의 풀이법도 정말 이해하기 쉽고 깔끔하다 생각함.
-
-그리고 천재?의 유형.. 정규식을 이용해 한줄롤 끝내버리기 ㄷㄷ 전혀 생각도 못한 방법
+나의 풀이에서 좀 로 끝내버리기 ㄷㄷ 전혀 생각도 못한 방법
 
      return phone_number.replaceAll(".(?=.{4})", "*");
 
