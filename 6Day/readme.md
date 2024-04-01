@@ -28,6 +28,7 @@
 뒤늦게 문자열 형태로 비교했기 때문에 long형으로 변환할 필요가 없다는 걸 깨달음; (내가 풀고도 순간 틀린줄 앎;)
 
 아래는 문자열 compareTo 함수로 돌린 시간값 
+
   ![image](https://github.com/jongjin55/daily_99/assets/44630719/04c2e9e7-489c-43df-ae29-fe7e61e56e76)
 
 
