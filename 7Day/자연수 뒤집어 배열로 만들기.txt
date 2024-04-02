@@ -1,0 +1,17 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(long n) {
+        
+        
+        String[] str = String.valueOf(n).split("");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < str.length; i++) {
+            sb.append(str[i]);
+        }
+        int[] answer = Arrays.asList(sb.reverse().toString().split("")).stream().mapToInt(Integer::parseInt).toArray();
+        
+        return answer;
+    }
+}
