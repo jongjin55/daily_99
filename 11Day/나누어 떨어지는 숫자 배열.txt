@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr, int divisor) {
+        int[] answer = {};
+        List<Integer> arry = new ArrayList<>();
+
+        for (int i : arr) {
+
+            if(i % divisor == 0) {
+                arry.add(i);
+            }
+        }
+
+        if(arry.size() == 0) {
+            answer = new int[1];
+            answer[0] = -1;
+            return answer;
+        }
+        Collections.sort(arry);
+        answer = arry.stream().mapToInt(Integer::intValue).toArray();
+
+        return answer;
+    }
+}
