@@ -1,0 +1,15 @@
+class Solution {
+    public int solution(int n, int m, int[] section) {
+
+        int sec = section[0];
+        int answer = 1;
+        for (int i = 1; i < section.length; i++) {
+
+            if(sec + (m-1) < section[i]) {
+                answer++;
+                sec = section[i];
+            }
+        }
+        return answer;
+    }
+}
