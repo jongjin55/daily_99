@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Solution {
+    public String[] solution(String[] strings, int n) {
+
+        Arrays.sort(strings);
+         Map<Integer, String> input = new HashMap<>();
+
+        for (int i = 0; i < strings.length; i++) {
+            input.put(i, String.valueOf(strings[i].charAt(n)));
+        }
+
+        List<Integer> arr = new ArrayList<>(input.keySet());
+
+         arr.sort((o1, o2) -> input.get(o1).compareTo(input.get(o2)));
+
+        String[] answer = new String[strings.length];
+        int aa = 0;
+        for (int es : arr) {
+            answer[aa++] = strings[es];
+        }
+
+        return answer;
+    }
+}
