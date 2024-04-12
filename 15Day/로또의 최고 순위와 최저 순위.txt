@@ -1,0 +1,24 @@
+class Solution {
+    public int[] solution(int[] lottos, int[] win_nums) {
+        int[] answer = new int[2];
+        int[] lotto = {6, 6, 5, 4, 3, 2, 1};
+        int ans = 0;
+        int zeroChk = 0;
+
+        for (int i = 0; i < lottos.length; i++) {
+            if(lottos[i] != 0 ) {
+                for (int chk : win_nums) {
+                    if(chk == lottos[i]) {
+                        ans++;
+                    }
+                }
+            } else {
+                zeroChk++;
+            }
+        }
+
+        answer[0] = lotto[ans + zeroChk];
+        answer[1] = lotto[ans];
+        return answer;
+    }
+}
