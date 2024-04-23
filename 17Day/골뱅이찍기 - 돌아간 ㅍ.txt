@@ -1,0 +1,33 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Test79 {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        
+        StringBuilder sb = new StringBuilder();
+
+        for (int j = 0; j < 5*N; j++) {
+            sb.append("@");
+            for (int i = 1; i < (5*N)-1; i++) {
+                if(( j >= 1*N && j < (1*N + N) ) || ( j >= 3*N && j < (3*N + N) )) {
+                    sb.append("@");
+                }else {
+                    if(i < N || i > ( (N*5) - N-1)) {
+                        sb.append("@");
+                    }else {
+                        
+                        sb.append(" ");
+                    }
+                }
+            }
+            sb.append("@\n");
+            }
+
+            System.out.println(sb.toString());
+        }
+}
