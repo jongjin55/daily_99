@@ -1,0 +1,173 @@
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+class Solution {
+    private String[] parks;
+    private String[] route;
+    private char[][] map;
+
+    public int[] WORKING(int i, int j) {
+        int[] ans = new int[2];
+        String op = "";
+        int n = 0;
+
+        for (int j2 = 0; j2 < route.length; j2++) {
+
+            String[] tmp = route[j2].split(" ");
+
+            op = tmp[0];
+            n = Integer.parseInt(tmp[1]);
+            int tmpIntA = 0;
+            int tmpIntB = 0;
+
+            for (int k = 0; k < n; k++) {
+
+                switch (op) {
+                    case "N": //북쪽 1 . 0
+                        tmpIntA = tmpIntA - 1;
+                        break;
+                    case "S": //남쪽 -1 . 0
+                        tmpIntA = tmpIntA + 1;
+                        break;
+                    case "E": //동쪽  0  +1
+                        tmpIntB = tmpIntB + 1;
+                        break;
+                    case "W": //서쪽 0 -1
+                        tmpIntB = tmpIntB - 1;
+                        break;
+                    default:
+                        break;
+                }
+
+                if(tmpIntB+j < 0 || tmpIntB+j >= parks[0].length() ) {
+                    break;
+                }
+                if(tmpIntA+i < 0 || tmpIntA+i >= parks.length ) {
+                    break;
+                }
+                if(map[tmpIntA+i][tmpIntB+j] == 'X') {
+                    break;
+                }
+
+                if(k == n-1) {
+                    i += tmpIntA;
+                    j += tmpIntB;
+                }
+            }
+        }
+        ans[0] = i;
+        ans[1] = j;
+
+        return ans;
+    }
+
+    public int[] solution(String[] park, String[] routes) {
+
+        int[] answer = new int[2];
+        this.parks = park;
+        this.route = routes;
+
+        map = new char[park.length][park[0].length()];
+
+        for (int i = 0; i < map.length; i++) {
+            String tmp = park[i];
+            for (int j = 0; j < park[0].length(); j++) {
+                map[i][j] = tmp.charAt(j);
+            }
+        }
+
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                if(map[i][j] == 'S') {
+                    answer = WORKING(i, j);
+                }
+            }
+        }
+
+        return answer;
+    }
+}
